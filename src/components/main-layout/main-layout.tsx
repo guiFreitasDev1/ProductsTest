@@ -14,23 +14,9 @@ export type MainLayoutProps = {
 };
 
 export const MainLayout = ({ children }: MainLayoutProps) => {
-  const [open, setOpen] = useState(false);
-
-  const showDrawer = () => {
-    setOpen(true);
-  };
-
-  const onClose = () => {
-    setOpen(false);
-  };
-
-  const onChange = (e: RadioChangeEvent) => {};
-
   return (
     <Layout className={styles["layout-main"]}>
-      <CartProvider>
-        <Header />
-      </CartProvider>
+      <Header />
       <Content className={styles.content}>
         <div className={styles["content-inner"]}>{children}</div>
         <div className={styles.footer}>

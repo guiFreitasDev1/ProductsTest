@@ -1,38 +1,67 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./cardProductCard.module.scss";
 import { Button, Text } from "@/components/ui";
+import { CartContext } from "@/context/cart";
+import { DeleteOutlined } from "@ant-design/icons";
 
-export type CardProductCardProps = {};
+export type CardProductCardProps = {
+  cart?: {
+    reduce: any;
+    id: number | undefined;
+    name: string | undefined;
+    photo: string | undefined;
+    price: string | undefined;
+    quantity: number | undefined;
+  };
+};
 
-export const CardProductCard = ({}: CardProductCardProps) => {
+export const CardProductCard = ({ cart }: CardProductCardProps) => {
+  const cartContext = useContext(CartContext);
+  if (!cartContext) {
+    throw new Error("CartContext is undefined");
+  }
+  const { addProductToCart, removeProductFromCart, removeProductFullFromCart } =
+    cartContext;
   const [productQuantity, setProductQuantity] = useState<number>(1);
+  const cartPrice =
+    cart?.price && cart?.quantity ? parseFloat(cart.price) * cart.quantity : 0;
+  useEffect(() => {
+    setProductQuantity(cart?.quantity || 1);
+  }, [productQuantity, cart]);
 
   const handleIncreaseQuantity = () => {
+    addProductToCart(cart);
     setProductQuantity((prev) => prev + 1);
   };
 
   const handleDecreaseQuantity = () => {
     setProductQuantity((prev) => (prev > 0 ? prev - 1 : 0));
+    removeProductFromCart(cart);
+  };
+  const handleDelete = () => {
+    setProductQuantity(0);
+    removeProductFullFromCart(cart);
   };
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.imageContainer}>
-        <img
-          src="https://raizmarmitas.com.br/wp-content/uploads/2023/12/kit-shape-do-verao-1.jpeg"
-          className={styles.image}
-        />
+        <img src={cart?.photo} className={styles.image} />
       </div>
       <div className={styles.productInfoContainer}>
         <div className={styles.productNameContainer}>
           <Text variant="body" weight="600" color="black">
-            Kit Shape do Verão (12 und.)
+            {cart?.name}
           </Text>
-          <Text variant="body" weight="600">
-            icon
-          </Text>
+          <Button
+            variant="delete"
+            customStyle={{ height: 25, width: 25, borderRadius: 32 }}
+            onClick={handleDelete}
+          >
+            <DeleteOutlined />
+          </Button>
         </div>
         <div className={styles.productNameContainer}>
           <div className={styles.productQuantityContainer}>
@@ -59,7 +88,7 @@ export const CardProductCard = ({}: CardProductCardProps) => {
             </Button>
           </div>
           <Text variant="body" weight="600" color="black">
-            R$279,90
+            R${cartPrice}
           </Text>
         </div>
       </div>

@@ -7,8 +7,8 @@ const HomeScreen = () => {
   if (!cartContext) {
     throw new Error("CartContext is undefined");
   }
-  const { addProductToCart, productsCart } = cartContext;
-  console.log(productsCart);
+  const { addProductToCart } = cartContext;
+
   const handleClick = (data: any) => {
     addProductToCart(data);
   };

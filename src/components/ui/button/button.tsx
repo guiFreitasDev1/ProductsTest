@@ -3,7 +3,7 @@ import { Button as ButtonAntd, ButtonProps } from "antd";
 import styles from "./button.module.scss";
 
 interface CustomButtonProps extends ButtonProps {
-  variant: "primary" | "secondary" | "buttonTransparent";
+  variant: "primary" | "secondary" | "buttonTransparent" | "delete";
   fontSize?: "8" | "10" | "12" | "13" | "14" | "15" | "16";
   weight?: "300" | "400" | "500" | "600" | "700";
   flex?: 1;

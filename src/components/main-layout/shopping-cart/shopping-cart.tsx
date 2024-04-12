@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Button, Text } from "@/components/ui";
 import { CartWithProducts } from "./components/cart-with-products";
@@ -7,20 +7,29 @@ import { CartContext } from "@/context/cart";
 
 interface ShoppingCartProps {
   onClose: () => void;
+  setQuantityCart?: any;
 }
 
-export const ShoppingCart = ({ onClose }: ShoppingCartProps) => {
-  const router = useRouter();
-
-  const [isEmpty, setIsEmpty] = useState<boolean>(false);
+export const ShoppingCart = ({
+  onClose,
+  setQuantityCart,
+}: ShoppingCartProps) => {
+  const cartContext = useContext(CartContext);
+  if (!cartContext) {
+    throw new Error("CartContext is undefined");
+  }
+  const { productsCart } = cartContext;
+  useEffect(() => {
+    setQuantityCart(productsCart.length);
+  }, [productsCart.length]);
 
   const handleBackToStore = () => {
-    router.push("/");
+    onClose();
   };
 
   return (
     <div className={styles.wrapper}>
-      {isEmpty ? (
+      {productsCart.length === 0 ? (
         <div className={styles.content}>
           <Text variant="body" color="titleText" weight="500">
             Seu carrinho está vazio
@@ -31,10 +40,10 @@ export const ShoppingCart = ({ onClose }: ShoppingCartProps) => {
         </div>
       ) : (
         <div className={styles.content}>
-          <CartWithProducts onClose={onClose} />
+          <CartWithProducts onClose={onClose} products={productsCart} />
         </div>
       )}
-      {isEmpty && (
+      {productsCart.length === 0 && (
         <div className={styles.buyButton}>
           <Button onClick={handleBackToStore} variant="secondary" weight="400">
             CONTINUAR COMPRAS

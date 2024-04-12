@@ -1,21 +1,15 @@
 "use client";
 
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Button, Text } from "@/components/ui";
 import styles from "./header.module.scss";
 import { MenuOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { useRouter } from "next/router";
 import { Drawer } from "antd";
 import { ShoppingCart } from "../shopping-cart";
-import { CartContext, CartProvider } from "@/context/cart";
 
 export const Header = () => {
-  const cartContext = useContext(CartContext);
-  if (!cartContext) {
-    throw new Error("CartContext is undefined");
-  }
-  const { addProductToCart, productsCart } = cartContext;
-
+  const [quantityCart, setQuantityCart] = useState(0);
   const router = useRouter();
 
   const handleNavigate = (routerParam: string) => {
@@ -31,12 +25,6 @@ export const Header = () => {
   const onClose = () => {
     setVisible(false);
   };
-
-  const MenuTitle = (
-    <Text variant="header" color="white" fontSize="15" weight="600">
-      Menu
-    </Text>
-  );
 
   return (
     <div className={styles.wrapper}>
@@ -58,17 +46,24 @@ export const Header = () => {
         <Button
           variant="buttonTransparent"
           onClick={showDrawer}
-          icon={<ShoppingCartOutlined size={63} color="#f08953" />}
+          icon={
+            <ShoppingCartOutlined
+              size={63}
+              color="#f08953"
+              style={{ paddingRight: 10 }}
+            />
+          }
           type="default"
           style={{
             right: 24,
             height: 56,
             width: 56,
+
             background: "#fff",
             border: "2px solid #f08953",
           }}
         >
-          0
+          {quantityCart}
         </Button>
         <Drawer
           title="Carrinho de compras"
@@ -80,9 +75,7 @@ export const Header = () => {
           width={500}
           open={visible}
         >
-          <CartProvider>
-            <ShoppingCart onClose={onClose} />
-          </CartProvider>
+          <ShoppingCart onClose={onClose} setQuantityCart={setQuantityCart} />
         </Drawer>
       </div>
     </div>

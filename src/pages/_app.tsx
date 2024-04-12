@@ -20,24 +20,25 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <QueryClientProvider client={queryClient}>
       <ProviderTheme>
-        <MainLayout>
-          <style jsx global>{`
-            .swiper-pagination-bullet {
-              background-color: #999; /* Cor dos pontos quando não selecionados */
-              width: 13px;
-              height: 13px;
-              opacity: 1;
-            }
+        <CartProvider>
+          <MainLayout>
+            <style jsx global>{`
+              .swiper-pagination-bullet {
+                background-color: #999; /* Cor dos pontos quando não selecionados */
+                width: 13px;
+                height: 13px;
+                opacity: 1;
+              }
 
-            .swiper-pagination-bullet-active {
-              margin-top: 20px;
-              background-color: #9024ff; /* Cor dos pontos quando selecionados */
-            }
-          `}</style>
-          <CartProvider>
+              .swiper-pagination-bullet-active {
+                margin-top: 20px;
+                background-color: #9024ff; /* Cor dos pontos quando selecionados */
+              }
+            `}</style>
+
             <Component {...pageProps} />
-          </CartProvider>
-        </MainLayout>
+          </MainLayout>
+        </CartProvider>
       </ProviderTheme>
     </QueryClientProvider>
   );

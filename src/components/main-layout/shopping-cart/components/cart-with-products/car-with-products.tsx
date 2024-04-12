@@ -3,17 +3,49 @@
 import styles from "./cartWithProducts.module.scss";
 import { CardProductCard } from "./components";
 import { Button, Text } from "@/components/ui";
-import { Divider, Progress } from "antd";
+import { Divider } from "antd";
 
 export type CartWithProductsProps = {
   onClose: () => void;
+  products?: any;
 };
 
-export const CartWithProducts = ({ onClose }: CartWithProductsProps) => {
+export const CartWithProducts = ({
+  onClose,
+  products,
+}: CartWithProductsProps) => {
+  const calculateTotalPrice = () => {
+    if (!products) return 0;
+
+    return products
+      .map((product: any) => {
+        return parseFloat(product?.price) * product?.quantity;
+      })
+      .reduce((total: number, price: number) => total + price, 0);
+  };
+
+  const renderItem = (
+    cart:
+      | {
+          reduce: any;
+          id: number | undefined;
+          name: string | undefined;
+          photo: string | undefined;
+          price: string | undefined;
+          quantity: number | undefined;
+        }
+      | undefined
+  ) => {
+    return (
+      <div>
+        <CardProductCard cart={cart} />
+      </div>
+    );
+  };
   return (
     <div className={styles.wrapper}>
       <div className={styles.productsContainer}>
-        <CardProductCard />
+        {products?.map(renderItem)}
       </div>
       <div className={styles.buyResumeContainer}>
         <Divider />
@@ -22,7 +54,7 @@ export const CartWithProducts = ({ onClose }: CartWithProductsProps) => {
             Total
           </Text>
           <Text variant="body" weight="500" color="black">
-            R$839,70
+            R${calculateTotalPrice().toFixed(2)}
           </Text>
         </div>
 

@@ -36,3 +36,21 @@
   color: $brandPrimary !important;
   border-color: $brandPrimary !important;
 }
+
+.delete {
+  display: flex;
+  border-radius: 4px;
+  text-align: center;
+  color: $error;
+  border-color: $error;
+  padding: 8px;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border: 2px solid;
+}
+
+.delete:hover {
+  color: $error !important;
+  border-color: $error !important;
+}
