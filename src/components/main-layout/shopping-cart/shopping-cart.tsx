@@ -7,7 +7,7 @@ import { CartContext } from "@/context/cart";
 
 interface ShoppingCartProps {
   onClose: () => void;
-  setQuantityCart?: any;
+  setQuantityCart: (data: any) => void;
 }
 
 export const ShoppingCart = ({
@@ -18,10 +18,10 @@ export const ShoppingCart = ({
   if (!cartContext) {
     throw new Error("CartContext is undefined");
   }
-  const { productsCart } = cartContext;
+  const { productsCart, addProductToCart } = cartContext;
   useEffect(() => {
     setQuantityCart(productsCart.length);
-  }, [productsCart.length, setQuantityCart]);
+  }, [productsCart.length, setQuantityCart, addProductToCart]);
 
   const handleBackToStore = () => {
     onClose();

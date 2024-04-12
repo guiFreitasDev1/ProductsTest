@@ -9,7 +9,16 @@ const HomeScreen = () => {
   }
   const { addProductToCart } = cartContext;
 
-  const handleClick = (data: any) => {
+  const handleClick = (data: {
+    brand: string | undefined;
+    createdAt: string | undefined;
+    description: string | undefined;
+    id: number | undefined;
+    name: string | undefined;
+    photo: string | undefined;
+    price: string | undefined;
+    updatedAt: string | undefined;
+  }) => {
     addProductToCart(data);
   };
   return (

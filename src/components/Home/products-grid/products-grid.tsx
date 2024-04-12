@@ -6,7 +6,7 @@ import React from "react";
 import { useGetProducts } from "@/services";
 
 interface ProductsGrid {
-  addProductToCart: any;
+  addProductToCart: (data: any) => void;
 }
 
 export const ProductsGrid = ({ addProductToCart }: ProductsGrid) => {

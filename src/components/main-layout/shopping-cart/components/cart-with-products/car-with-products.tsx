@@ -1,5 +1,6 @@
 "use client";
 
+import { Product } from "@/context/cart";
 import styles from "./cartWithProducts.module.scss";
 import { CardProductCard } from "./components";
 import { Button, Text } from "@/components/ui";
@@ -7,7 +8,7 @@ import { Divider } from "antd";
 
 export type CartWithProductsProps = {
   onClose: () => void;
-  products?: any;
+  products?: Product[];
 };
 
 export const CartWithProducts = ({
@@ -24,18 +25,13 @@ export const CartWithProducts = ({
       .reduce((total: number, price: number) => total + price, 0);
   };
 
-  const renderItem = (
-    cart:
-      | {
-          reduce: any;
-          id: number | undefined;
-          name: string | undefined;
-          photo: string | undefined;
-          price: string | undefined;
-          quantity: number | undefined;
-        }
-      | undefined
-  ) => {
+  const renderItem = (cart: {
+    id: number | undefined;
+    name: string | undefined;
+    photo: string | undefined;
+    price: string | undefined;
+    quantity: number | undefined;
+  }) => {
     return (
       <div>
         <CardProductCard cart={cart} />
