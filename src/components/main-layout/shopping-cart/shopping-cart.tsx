@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useRouter } from "next/router";
 import { Button, Text } from "@/components/ui";
 import { CartWithProducts } from "./components/cart-with-products";
 import styles from "./shoppingCart.module.scss";
+import { CartContext } from "@/context/cart";
 
 interface ShoppingCartProps {
   onClose: () => void;
@@ -14,7 +15,7 @@ export const ShoppingCart = ({ onClose }: ShoppingCartProps) => {
   const [isEmpty, setIsEmpty] = useState<boolean>(false);
 
   const handleBackToStore = () => {
-    /*  router.push("/loja"); */
+    router.push("/");
   };
 
   return (

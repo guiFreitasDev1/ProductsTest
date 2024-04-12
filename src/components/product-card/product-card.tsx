@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Button, Text } from "../ui";
 import styles from "./product-card.module.scss";
 import { Col, Row } from "antd";
@@ -14,11 +13,10 @@ interface ProductCardProps {
     price: string | undefined;
     updatedAt: string | undefined;
   };
+  addProductToCart: any;
 }
 
-export const ProductCard = ({ card }: ProductCardProps) => {
-  console.log(card);
-
+export const ProductCard = ({ card, addProductToCart }: ProductCardProps) => {
   return (
     <div className={styles.wrapper}>
       <Row className={styles.imageContainer}>
@@ -47,7 +45,11 @@ export const ProductCard = ({ card }: ProductCardProps) => {
         </Col>
       </Row>
 
-      <Button variant="secondary" height="31.91px">
+      <Button
+        variant="secondary"
+        height="31.91px"
+        onClick={() => addProductToCart(card)}
+      >
         COMPRAR
       </Button>
     </div>

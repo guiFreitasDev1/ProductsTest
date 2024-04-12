@@ -1,14 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Button, Text } from "@/components/ui";
 import styles from "./header.module.scss";
 import { MenuOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { useRouter } from "next/router";
 import { Drawer } from "antd";
 import { ShoppingCart } from "../shopping-cart";
+import { CartContext, CartProvider } from "@/context/cart";
 
 export const Header = () => {
+  const cartContext = useContext(CartContext);
+  if (!cartContext) {
+    throw new Error("CartContext is undefined");
+  }
+  const { addProductToCart, productsCart } = cartContext;
+
   const router = useRouter();
 
   const handleNavigate = (routerParam: string) => {
@@ -73,7 +80,9 @@ export const Header = () => {
           width={500}
           open={visible}
         >
-          <ShoppingCart onClose={onClose} />
+          <CartProvider>
+            <ShoppingCart onClose={onClose} />
+          </CartProvider>
         </Drawer>
       </div>
     </div>

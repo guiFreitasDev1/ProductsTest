@@ -6,6 +6,7 @@ import { Provider as ProviderTheme } from "@/context";
 import { MainLayout } from "@/components";
 import "../styles/global.css";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { CartProvider } from "@/context/cart";
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,7 +34,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
               background-color: #9024ff; /* Cor dos pontos quando selecionados */
             }
           `}</style>
-          <Component {...pageProps} />
+          <CartProvider>
+            <Component {...pageProps} />
+          </CartProvider>
         </MainLayout>
       </ProviderTheme>
     </QueryClientProvider>

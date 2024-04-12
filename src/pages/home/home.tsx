@@ -1,10 +1,20 @@
 import { ProductsGrid } from "@/components/Home/products-grid";
-import React from "react";
+import { CartContext } from "@/context/cart";
+import React, { useContext } from "react";
 
 const HomeScreen = () => {
+  const cartContext = useContext(CartContext);
+  if (!cartContext) {
+    throw new Error("CartContext is undefined");
+  }
+  const { addProductToCart, productsCart } = cartContext;
+  console.log(productsCart);
+  const handleClick = (data: any) => {
+    addProductToCart(data);
+  };
   return (
     <div>
-      <ProductsGrid />
+      <ProductsGrid addProductToCart={handleClick} />
     </div>
   );
 };

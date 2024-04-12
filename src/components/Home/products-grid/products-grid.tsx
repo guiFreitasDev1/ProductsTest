@@ -5,9 +5,11 @@ import "swiper/scss/pagination";
 import React from "react";
 import { useGetProducts } from "@/services";
 
-interface ProductsGrid {}
+interface ProductsGrid {
+  addProductToCart: any;
+}
 
-export const ProductsGrid = ({}: ProductsGrid) => {
+export const ProductsGrid = ({ addProductToCart }: ProductsGrid) => {
   const { dataProducts, isLoadingProducts } = useGetProducts({
     page: 1,
     rows: 10,
@@ -27,7 +29,7 @@ export const ProductsGrid = ({}: ProductsGrid) => {
   }) => {
     return (
       <div>
-        <ProductCard card={item} />
+        <ProductCard card={item} addProductToCart={addProductToCart} />
       </div>
     );
   };

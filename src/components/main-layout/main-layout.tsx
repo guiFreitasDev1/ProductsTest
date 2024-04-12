@@ -1,12 +1,11 @@
 "use client";
 
 import React, { ReactNode, useState } from "react";
-import { Drawer, FloatButton, Layout, RadioChangeEvent } from "antd";
+import { Layout, RadioChangeEvent } from "antd";
 import { Header } from "./header";
 import { Footer } from "./footer";
 import styles from "./mainLayout.module.scss";
-import { ShoppingCartOutlined } from "@ant-design/icons";
-import { ShoppingCart } from "./shopping-cart";
+import { CartProvider } from "@/context/cart";
 
 const { Content } = Layout;
 
@@ -29,7 +28,9 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
 
   return (
     <Layout className={styles["layout-main"]}>
-      <Header />
+      <CartProvider>
+        <Header />
+      </CartProvider>
       <Content className={styles.content}>
         <div className={styles["content-inner"]}>{children}</div>
         <div className={styles.footer}>
