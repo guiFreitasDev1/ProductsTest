@@ -4,7 +4,7 @@ import React, { ReactNode } from "react";
 import { Layout } from "antd";
 import { Header } from "./header";
 import { Footer } from "./footer";
-import styles from "./mainLayout.module.scss";
+import styles from "./main-layout.module.scss";
 
 const { Content } = Layout;
 
