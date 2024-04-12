@@ -21,7 +21,7 @@ export const ShoppingCart = ({
   const { productsCart } = cartContext;
   useEffect(() => {
     setQuantityCart(productsCart.length);
-  }, [productsCart.length]);
+  }, [productsCart.length, setQuantityCart]);
 
   const handleBackToStore = () => {
     onClose();

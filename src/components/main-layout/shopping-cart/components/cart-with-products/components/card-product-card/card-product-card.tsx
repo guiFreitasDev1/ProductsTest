@@ -5,7 +5,6 @@ import styles from "./cardProductCard.module.scss";
 import { Button, Text } from "@/components/ui";
 import { CartContext } from "@/context/cart";
 import { DeleteOutlined } from "@ant-design/icons";
-
 export type CardProductCardProps = {
   cart?: {
     reduce: any;
@@ -28,8 +27,8 @@ export const CardProductCard = ({ cart }: CardProductCardProps) => {
   const cartPrice =
     cart?.price && cart?.quantity ? parseFloat(cart.price) * cart.quantity : 0;
   useEffect(() => {
-    setProductQuantity(cart?.quantity || 1);
-  }, [productQuantity, cart]);
+    setProductQuantity(cart?.quantity ? cart?.quantity : 1);
+  }, [productQuantity, cart, addProductToCart]);
 
   const handleIncreaseQuantity = () => {
     addProductToCart(cart);
@@ -48,7 +47,11 @@ export const CardProductCard = ({ cart }: CardProductCardProps) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.imageContainer}>
-        <img src={cart?.photo} className={styles.image} />
+        <img
+          src={cart?.photo}
+          className={styles.image}
+          alt={cart?.name || ""}
+        />
       </div>
       <div className={styles.productInfoContainer}>
         <div className={styles.productNameContainer}>

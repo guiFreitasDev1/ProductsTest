@@ -1,11 +1,10 @@
 "use client";
 
-import React, { ReactNode, useState } from "react";
-import { Layout, RadioChangeEvent } from "antd";
+import React, { ReactNode } from "react";
+import { Layout } from "antd";
 import { Header } from "./header";
 import { Footer } from "./footer";
 import styles from "./mainLayout.module.scss";
-import { CartProvider } from "@/context/cart";
 
 const { Content } = Layout;
 
