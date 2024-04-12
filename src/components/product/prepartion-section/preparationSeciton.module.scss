@@ -1,0 +1,63 @@
+@import "./../../../variables.scss";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  background-color: #f1f4e6;
+}
+
+.itemWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.itemInfoWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  padding-left: 20rem;
+  width: 100%;
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.itemList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.image {
+  height: 180px;
+  width: 180px;
+}
+
+.border {
+  width: 500px;
+  border-bottom: 1px solid;
+}
+
+@media (max-width: 1130px) {
+  .itemInfoWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0;
+  }
+
+  .itemInfo {
+    width: 85%;
+  }
+}

@@ -1,0 +1,38 @@
+@import "./../../../variables.scss";
+
+.secondary {
+  display: flex;
+  border-radius: 0px 0px 5px 5px;
+  text-align: center;
+  color: #fff;
+  background-color: $brandPrimary;
+  padding: 8px;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  transition: background-color 0.3s;
+  border: none;
+}
+
+.secondary:hover {
+  color: #fff !important;
+  background-color: $brandPrimary;
+}
+
+.buttonTransparent {
+  display: flex;
+  border-radius: 4px;
+  text-align: center;
+  color: $brandPrimary;
+  border-color: $brandPrimary;
+  padding: 8px;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border: 2px solid;
+}
+
+.buttonTransparent:hover {
+  color: $brandPrimary !important;
+  border-color: $brandPrimary !important;
+}

@@ -1,0 +1,32 @@
+@import "./../../../variables.scss";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 86vh;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.buyButton {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: 80vw;
+  }
+
+  .content {
+    padding-left: 20px;
+  }
+}

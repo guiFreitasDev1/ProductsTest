@@ -1,0 +1,31 @@
+.layout-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.header {
+  flex-shrink: 0;
+}
+
+.content {
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  overflow-x: hidden;
+}
+
+.content-inner {
+  flex-grow: 1;
+}
+
+.footer {
+  flex-shrink: 0;
+}
+
+.cartDrawer {
+  display: flex;
+}

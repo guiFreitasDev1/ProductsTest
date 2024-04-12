@@ -1,0 +1,29 @@
+@import "./../../../variables.scss";
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.wrapperProducts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  gap: 20px;
+  width: 80%;
+  padding: 20px;
+}
+
+.card {
+  width: 150px;
+}
+
+@media (min-width: 1654px) {
+  .wrapperProducts {
+    width: 1300px;
+    margin-top: 80px;
+  }
+}

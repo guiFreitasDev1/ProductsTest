@@ -1,0 +1,10 @@
+@import "./../../../variables.scss";
+
+.bottomSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $brandSecondary;
+  height: 34px;
+  width: 100vw;
+}

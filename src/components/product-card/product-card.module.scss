@@ -1,0 +1,81 @@
+@import "./../../variables.scss";
+
+.wrapper {
+  display: flex;
+  cursor: pointer;
+  border-radius: 8px;
+  flex-direction: column;
+  color: $brandPrimary;
+  width: 240px;
+  transition: transform 0.1s ease;
+}
+
+.wrapper:hover {
+  transform: scale(1.05);
+}
+
+.imageContainer {
+  display: flex;
+  padding: 8px;
+  background-color: #fff;
+  border-radius: 8px;
+  transition: transform 0.1s ease;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.imageContainer:hover {
+  background-color: #fff;
+}
+
+.image {
+  flex: 1;
+  height: 150px;
+  background-color: #f5f3ee;
+  transition: transform 0.1s ease;
+}
+
+.image:hover {
+  background-color: #fff;
+}
+
+.priceAndText {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  width: 100%;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4px;
+  gap: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 4px;
+  padding-top: 4px;
+}
+.descriptionContainer {
+  height: 100px;
+}
+.priceContainer {
+  background-color: #373737;
+  border-radius: 8px;
+  text-align: center;
+  width: 74px;
+  height: 26px;
+}
+
+@media (max-width: 583px) {
+  .wrapper {
+    width: 220px;
+  }
+}

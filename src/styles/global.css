@@ -1,0 +1,40 @@
+:global {
+  .ace_editor {
+    font-family: inherit !important;
+  }
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  margin-right: 4px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.swiper-pagination-bullet {
+  background-color: #999; /* Cor dos pontos quando não selecionados */
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+  margin: 0 5px; /* Ajuste o espaçamento entre os pontos conforme necessário */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: purple; /* Cor dos pontos quando selecionados */
+}
+
+.swiper-pagination {
+  bottom: 10px; /* Ajuste este valor se precisar mover os pontos mais para baixo */
+  text-align: center;
+}

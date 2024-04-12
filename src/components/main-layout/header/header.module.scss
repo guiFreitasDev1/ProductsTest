@@ -1,0 +1,56 @@
+@import "./../../../variables.scss";
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 120px;
+  padding-right: 120px;
+  padding-bottom: 24px;
+  padding-top: 24px;
+  height: 82px;
+  background-color: $brandPrimary;
+}
+
+.imageContainer {
+  cursor: pointer;
+}
+
+.menuContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100px;
+  gap: 16px;
+  height: 40px;
+  z-index: 1;
+}
+
+.menuItem {
+  cursor: pointer;
+  z-index: 1;
+}
+
+.drawerContainer {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .menuContainer {
+    display: none;
+  }
+
+  .mobileMenuButton {
+    display: block;
+  }
+
+  .drawerContainer {
+    display: flex;
+    cursor: pointer;
+  }
+}

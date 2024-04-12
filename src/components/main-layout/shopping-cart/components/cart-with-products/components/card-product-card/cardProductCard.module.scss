@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.imageContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  height: 121px;
+}
+
+.image {
+  border-radius: 8px;
+  height: 121px;
+  width: 121px;
+}
+
+.productQuantityContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 14px;
+}
+
+.productInfoContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.productNameContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
