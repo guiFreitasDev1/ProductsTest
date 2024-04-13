@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-
+import React from "react";
 import { Col, Row } from "antd";
 import styles from "./footer.module.scss";
 import { Text } from "@/components/ui";

@@ -9,7 +9,7 @@ import styles from "./main-layout.module.scss";
 const { Content } = Layout;
 
 export type MainLayoutProps = {
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 export const MainLayout = ({ children }: MainLayoutProps) => {

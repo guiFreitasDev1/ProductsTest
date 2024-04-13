@@ -1,21 +1,14 @@
 "use client";
-
+import React from "react";
 import { useState } from "react";
 import { Button, Text } from "@/components/ui";
 import styles from "./header.module.scss";
 import { MenuOutlined, ShoppingCartOutlined } from "@ant-design/icons";
-import { useRouter } from "next/router";
 import { Drawer } from "antd";
 import { ShoppingCart } from "../shopping-cart";
 
 export const Header = () => {
   const [quantityCart, setQuantityCart] = useState(0);
-  const router = useRouter();
-
-  const handleNavigate = (routerParam: string) => {
-    router.push(routerParam);
-  };
-
   const [visible, setVisible] = useState<boolean>(false);
 
   const showDrawer = () => {
@@ -28,10 +21,7 @@ export const Header = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div
-        className={styles.imageContainer}
-        onClick={() => handleNavigate("/")}
-      >
+      <div className={styles.imageContainer} onClick={() => {}}>
         <Text fontSize="36" color="white" weight="600" variant="body">
           MKS
         </Text>

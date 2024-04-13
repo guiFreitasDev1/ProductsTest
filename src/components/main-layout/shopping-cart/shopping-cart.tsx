@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import React from "react";
+import { useContext, useEffect } from "react";
 import { Button, Text } from "@/components/ui";
 import { CartWithProducts } from "./components/cart-with-products";
 import styles from "./shoppingCart.module.scss";

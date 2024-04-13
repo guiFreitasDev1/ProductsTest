@@ -1,5 +1,5 @@
 "use client";
-
+import React from "react";
 import { Product } from "@/context/cart";
 import styles from "./cartWithProducts.module.scss";
 import { CardProductCard } from "./components";
@@ -25,13 +25,7 @@ export const CartWithProducts = ({
       .reduce((total: number, price: number) => total + price, 0);
   };
 
-  const renderItem = (cart: {
-    id: number | undefined;
-    name: string | undefined;
-    photo: string | undefined;
-    price: string | undefined;
-    quantity: number | undefined;
-  }) => {
+  const renderItem = (cart: any) => {
     return (
       <div>
         <CardProductCard cart={cart} />
